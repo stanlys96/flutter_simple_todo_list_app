@@ -91,6 +91,7 @@ class _TaskBoxState extends State<TaskBox> {
                             boxTitle: 'Edit Task',
                             id: widget.id,
                             addFunction: widget.updateTask,
+                            editTitle: widget.title,
                           );
                         },
                       );

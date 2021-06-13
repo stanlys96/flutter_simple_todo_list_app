@@ -5,10 +5,12 @@ class BottomSheetBox extends StatelessWidget {
   Function? addFunction;
   String boxTitle;
   int? id;
+  String? editTitle;
   BottomSheetBox({
     required this.boxTitle,
     required this.addFunction,
     this.id,
+    this.editTitle,
   });
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class BottomSheetBox extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: TextFormField(
+                  initialValue: editTitle == null ? '' : editTitle,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Enter Task',
@@ -65,7 +68,12 @@ class BottomSheetBox extends StatelessWidget {
                 minWidth: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    id == null ? addFunction!(title) : addFunction!(id, title);
+                    id == null
+                        ? addFunction!(title)
+                        : addFunction!(
+                            id,
+                            title == null ? editTitle : title,
+                          );
                     Navigator.pop(context);
                   },
                   child: Text('Submit'),

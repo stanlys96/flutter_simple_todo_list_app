@@ -18,7 +18,12 @@ class TasksList {
   }
 
   void addTask(String title) {
-    int newId = _tasksList[_tasksList.length - 1].id + 1;
+    int newId = 0;
+    if (_tasksList.length == 0) {
+      newId = 1;
+    } else {
+      newId = _tasksList[_tasksList.length - 1].id + 1;
+    }
     _tasksList.add(Task(newId, title));
   }
 
