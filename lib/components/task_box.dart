@@ -63,6 +63,10 @@ class _TaskBoxState extends State<TaskBox> {
                     color: Colors.white,
                     letterSpacing: 0.5,
                     fontSize: 16.0,
+                    decoration: isChecked
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
+                    decorationThickness: 2.0,
                   ),
                 ),
               ],
